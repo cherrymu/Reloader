@@ -32,6 +32,8 @@ reloader:
   legacy:
     rbac: false
   matchLabels: {}
+  # Set to true to expose a prometheus counter of reloads by namespace (this metric may have high cardinality in clusters with many namespaces)
+  enableMetricsByNamespace: false
   deployment:
     # If you wish to run multiple replicas set reloader.enableHA = true
     replicas: 1
@@ -89,10 +91,10 @@ reloader:
     labels:
       provider: stakater
       group: com.stakater.platform
-      version: vv1.0.86
+      version: v1.0.115
     image:
       name: ghcr.io/stakater/reloader
-      tag: vv1.0.86
+      tag: v1.0.115
       pullPolicy: IfNotPresent
     # Support for extra environment variables.
     env:
